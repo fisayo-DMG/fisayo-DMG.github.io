@@ -21,6 +21,7 @@ function makeGrid() {
 	});
 }
 
+//event when submit is clicked
 $('#sizePicker').on('submit', function(event){
 	event.preventDefault();
 	$('table').html('');
@@ -29,6 +30,7 @@ $('#sizePicker').on('submit', function(event){
 	$('#inputWeight').val(1);
 });
 
+//event when a grid is clicked
 $(document).on('click', 'td', function(event){
 	event.preventDefault();
 	$(this).css('background-color', $('#colorPicker').val());
