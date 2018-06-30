@@ -5,20 +5,20 @@
 
 function makeGrid() {
 
-	var rows = $('#inputHeight').val();
-	var cols = $('#inputWeight').val();
+	const rows = $('#inputHeight').val();
+	const cols = $('#inputWeight').val();
 
 	$('#inputHeight').val(rows);
 	$('#inputWeight').val(cols);
 	var grid = $('table');
-	for (var r = 0; r < rows; r++) {
-		grid.append($('<tr></tr>'));
+	for (let r = 0; r < rows; r++) {
+		grid.append("<tr id='" + r + "'></tr>")
+
+		for (let c = 0; c < cols; c++){
+			let tableRow = grid.find("#"+r);
+			tableRow.append('<td></td>');
+		}
 	}
-	$('tr').each(function(){
-	  	for (var c = 0; c < cols; c++){
-	  		$(this).append($('<td></td>'));
-	  	}
-	});
 }
 
 //event when submit is clicked
