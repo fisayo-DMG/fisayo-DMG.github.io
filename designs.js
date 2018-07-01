@@ -5,17 +5,19 @@
 
 function makeGrid() {
 
+	//using const here because the values passed in the variables would
+	//be constant within the scope of the function everytime it is called.
 	const rows = $('#inputHeight').val();
 	const cols = $('#inputWeight').val();
 
 	$('#inputHeight').val(rows);
 	$('#inputWeight').val(cols);
-	var grid = $('table');
+	let grid = $('table');
 	for (let r = 0; r < rows; r++) {
-		grid.append("<tr id='" + r + "'></tr>")
+		grid.append('<tr id="row' + r + '"></tr>')
 
 		for (let c = 0; c < cols; c++){
-			let tableRow = grid.find("#"+r);
+			let tableRow = grid.find('#row'+r);
 			tableRow.append('<td></td>');
 		}
 	}
@@ -30,7 +32,7 @@ $('#sizePicker').on('submit', function(event){
 	$('#inputWeight').val(1);
 });
 
-//event when a grid is clicked
+//event to add or remove background colour when a grid is clicked
 $(document).on('click', 'td', function(event){
 	event.preventDefault();
 	if($(this).attr('style')){
